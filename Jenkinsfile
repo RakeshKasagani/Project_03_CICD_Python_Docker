@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Code Checkout') {
             steps {
-                git credentialsId: 'git-credentials', url: '<your-repo-url>'
+                git branch: 'main', url: 'https://github.com/adarsh0331/Project_03_CICD_Python_Docker.git'
                 echo 'Checked out code from Git'
             }
         }
