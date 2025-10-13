@@ -1,49 +1,34 @@
+
 pipeline {
     agent any
-
-    environment {
-        DOCKER_IMAGE = "my-devops-app:latest"
-    }
-
+   
     stages {
-        stage('Checkout Code') {
+        stage('Code Checkout') {
             steps {
-                git url: 'https://github.com/adarsh0331/project10.git', branch: 'main'
+                git credentialsId: 'git-credentials', url: '<your-repo-url>'
+                echo 'Checked out code from Git'
             }
         }
-
-        stage('BUILDING THE CODE') {
+       
+        stage('Docker Build') {
             steps {
-                echo 'In this stage code will be built and mvn artifact will be generated'
-                sh 'mvn clean install'
+                echo 'Building Docker image'
+                sh 'docker build -t python-app:${BUILD_NUMBER} .'
             }
         }
-
-        stage('Build Docker Image') {
+        stage('Docker Run') {
             steps {
-                sh "sudo docker build -t $DOCKER_IMAGE ."
-            }
-        }
-
-        stage('Deploy App') {
-            steps {
-                sh """
-                    sudo docker ps -q --filter "name=my-devops-app" | grep -q . && docker stop my-devops-app && docker rm my-devops-app || true
-                    sudo docker run -d --name my-devops-app -p 5000:5000 $DOCKER_IMAGE
-                """
+                echo 'Deploying container'
+                sh 'docker stop python-app || true'
+                sh 'docker rm python-app || true'
+                sh 'docker run -d --name python-app -p 80:80 python-app:${BUILD_NUMBER}'
             }
         }
     }
-
     post {
         always {
-            echo "Pipeline finished!"
-        }
-        failure {
-            echo "Pipeline failed ❌"
-        }
-        success {
-            echo "Pipeline completed successfully ✅"
+            echo 'Cleaning up'
+            // Optional cleanup steps
         }
     }
 }
