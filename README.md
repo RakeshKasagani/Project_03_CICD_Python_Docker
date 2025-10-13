@@ -102,17 +102,9 @@ sudo yum install -y git
 1. **Install Plugins**:
    - Go to **Manage Jenkins > Manage Plugins > Available**.
    - Install:
-     - **Git Plugin**: For repository integration
+
      - **Pipeline: Stage View**: Visualize pipeline stages
      - **Docker Pipeline**: For Docker build/run steps
-   
-
-3. **Configure Git Repository**:
-   - Ensure Jenkins has access to your GitHub/GitLab repository.
-   - Add repository credentials (if private) in **Manage Jenkins > Manage Credentials > System > Global credentials**.
-     - **Kind**: Username with password
-     - **ID**: `git-credentials` (or any identifier)
-     - **Username/Password**: Your GitHub/GitLab credentials
 
 ## Application Structure
 
@@ -216,4 +208,3 @@ pipeline {
 - Scale with ECS or EKS for production.
 - Add notifications for pipeline failures (e.g., email, Slack).
 
-For issues, check Jenkins logs (`/var/log/jenkins/jenkins.log`) or open a GitHub/GitLab issue.
