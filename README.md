@@ -45,6 +45,7 @@ The architecture leverages AWS infrastructure, Jenkins for orchestration, Docker
        - Jenkins: Port 8080, Source: Your IP or 0.0.0.0/0 (restrict for security)
    - **IAM Role** (optional): Attach a role with policies for S3/CloudWatch if required.
 
+
 2. **SSH into EC2**:
    ```
    ssh -i <your-key.pem> ec2-user@<EC2-Public-IP>
