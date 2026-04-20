@@ -34,7 +34,7 @@ The architecture leverages AWS infrastructure, Jenkins for orchestration, Docker
 ## AWS Infrastructure Setup
 
 1. **Launch EC2 Instance**:
-   - **Instance Type**: t2.micro
+   - **Instance Type**: t2.medium
    - **AMI**: Amazon Linux 2
    - **VPC**: Default VPC, public subnet
    - **Key Pair**: Create or use an existing SSH key pair
@@ -66,7 +66,7 @@ sudo yum install wget -y
 sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
 sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
 sudo yum upgrade -y
-sudo dnf install java-17-amazon-corretto -y
+sudo dnf install java-21-amazon-corretto -y
 sudo yum install jenkins -y
 sudo systemctl start jenkins
 sudo systemctl enable jenkins
