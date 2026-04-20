@@ -80,6 +80,7 @@ sudo systemctl enable jenkins
    - scope : global
    - username : RakeshKasagani
    - password : give your git PAT (Personal Access Token)
+   - id : git-credentials
    - save
 ### Install Docker
 Install and configure Docker:
