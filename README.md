@@ -220,6 +220,27 @@ pipeline {
 - **Jenkins UI**: `http://<EC2-Public-IP>:8080`
 - **SSH Access**: Use your key pair for troubleshooting.
 
+## After accessing the Application**: `http://<EC2-Public-IP>:5000` if it gives error exexcute these steps
+- Mapping port 80 → 80
+- But your Flask app runs on port 5000
+## Stop and remove wrong container
+```
+docker stop python-app
+docker rm python-app
+```
+## Run with correct port mapping
+```
+docker run -d --name python-app -p 80:5000 python-app:1
+```
+## Verify
+```
+docker ps
+```
+- You should now see:
+
+   0.0.0.0:80->5000/tcp
+
+
 ## Troubleshooting
 
 - **Jenkins UI inaccessible**: Verify security group allows port 8080; check `sudo systemctl status jenkins`.
