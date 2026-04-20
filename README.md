@@ -89,6 +89,27 @@ sudo usermod -a -G docker jenkins
 - Log out and back in as `ec2-user` to apply group changes.
 - Verify: `docker --version`.
 
+ ###  Add Jenkins to Docker group
+ ```
+sudo usermod -aG docker jenkins
+```
+### Restart Docker & Jenkins
+```
+sudo systemctl restart docker
+sudo systemctl restart jenkins
+```
+### Verify
+```
+groups jenkins
+```
+## You should see:
+jenkins docker
+
+### If not, reboot:
+```
+sudo reboot
+```
+
 ### Install Git
 Ensure Git is installed:
 
