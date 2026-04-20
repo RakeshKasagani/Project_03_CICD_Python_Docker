@@ -105,6 +105,11 @@ groups jenkins
 ## You should see:
 jenkins docker
 
+### If not, reboot:
+```
+sudo reboot
+```
+
 ### Install Git
 Ensure Git is installed:
 
