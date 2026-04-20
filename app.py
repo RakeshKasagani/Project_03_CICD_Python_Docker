@@ -2,12 +2,32 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-# Sample product data
+# Sample product data with real images
 products = [
-    {"id": 1, "name": "Laptop", "price": 60000, "image": "https://via.placeholder.com/200"},
-    {"id": 2, "name": "Smartphone", "price": 20000, "image": "https://via.placeholder.com/200"},
-    {"id": 3, "name": "Headphones", "price": 2000, "image": "https://via.placeholder.com/200"},
-    {"id": 4, "name": "Watch", "price": 5000, "image": "https://via.placeholder.com/200"}
+    {
+        "id": 1,
+        "name": "Laptop",
+        "price": 60000,
+        "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8"
+    },
+    {
+        "id": 2,
+        "name": "Smartphone",
+        "price": 20000,
+        "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9"
+    },
+    {
+        "id": 3,
+        "name": "Headphones",
+        "price": 2000,
+        "image": "https://images.unsplash.com/photo-1518449033319-6cdbb6b0d8c0"
+    },
+    {
+        "id": 4,
+        "name": "Watch",
+        "price": 5000,
+        "image": "https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b"
+    }
 ]
 
 @app.route("/")
