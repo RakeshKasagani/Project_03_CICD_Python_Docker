@@ -71,11 +71,16 @@ sudo yum install jenkins -y
 sudo systemctl start jenkins
 sudo systemctl enable jenkins
 ```
-
 - Access Jenkins at `http://<EC2-Public-IP>:8080`.
 - Unlock using the initial admin password from `/var/lib/jenkins/secrets/initialAdminPassword`.
 - Install suggested plugins and create an admin user.
 
+  ### Add git credentials to jenkins
+ - Go to **Manage Jenkins > credentials >  username with password**.
+   - scope : global
+   - username : RakeshKasagani
+   - password : give you git PAT 9Personal Access Token)
+   - save
 ### Install Docker
 Install and configure Docker:
 
